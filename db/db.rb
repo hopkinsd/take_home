@@ -1,3 +1,4 @@
 require 'sequel'
+require_relative '../config/config'
 
-DB = Sequel.sqlite 'db/database.db'
+DB = Sequel.connect Config[:db]
