@@ -7,3 +7,5 @@ gem 'pry-stack_explorer'
 gem 'sequel'
 gem 'sqlite3'
 gem 'rake'
+
+gem 'rspec'
