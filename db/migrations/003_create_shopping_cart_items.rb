@@ -5,7 +5,7 @@ Sequel.migration do
       foreign_key :product_id, :products, null: false
       Integer :quantity, null: false
 
-      index [:shopping_cart_id, :product_id]
+      primary_key [:shopping_cart_id, :product_id]
     end
   end
 end
