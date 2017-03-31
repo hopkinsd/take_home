@@ -8,5 +8,5 @@ gem 'sequel'
 gem 'sqlite3'
 gem 'rake'
 
-gem 'rspec'
+gem 'minitest'
 gem 'json'
