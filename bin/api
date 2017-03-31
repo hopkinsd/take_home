@@ -1,0 +1,41 @@
+#!/usr/bin/env ruby
+
+require 'json'
+require 'pry'
+
+require_relative '../app/boot'
+
+def error(reason)
+  { error: reason }.to_json
+end
+
+# params = ARGV.dup
+
+api_call = ApiCall.new ARGV
+
+if api_call.valid?
+  api_call.process
+  unless api_call.errors.empty?
+    abort api_call.error_string
+  end
+  # exit 0
+else
+  abort api_call.error_string
+end
+
+# action = ARGV[0]
+
+# valid_actions = %w|add remove purchase cart history|
+# required_keys = %i|user_id|
+
+# if valid_actions.include? action
+#   params = JSON.parse ARGV[1], symbolize_names: true
+#   unless required_keys.all? { |key| params.keys.include? key }
+#     puts error "not all required keys provided: #{required_keys}"
+#     exit 1
+#   end
+#   # delegate now
+# else
+#   puts error 'not a valid action' unless valid_actions.include? action
+#   exit 1
+# end
